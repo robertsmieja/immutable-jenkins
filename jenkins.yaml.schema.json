@@ -1,0 +1,1646 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Jenkins Configuration as Code",
+  "type": "object",
+  "properties": {
+    "credentialsproviderfilter": {
+      "oneOf": [
+        {
+          "properties": {
+            "excludes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderFilter$Excludes"
+            }
+          }
+        },
+        {
+          "properties": {
+            "includes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderFilter$Includes"
+            }
+          }
+        },
+        {
+          "properties": {
+            "none": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderFilter$None"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "excludes": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    },
+    "jenkinslocationconfiguration": {
+      "type": "object",
+      "properties": {
+        "adminAddress": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "masterkillswitchconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "globalconfigurationimpl": {
+      "type": "object",
+      "properties": {}
+    },
+    "listview": {
+      "type": "object",
+      "properties": {
+        "statusFilter": { "type": "boolean" },
+        "includeRegex": { "type": "string" },
+        "columns": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.ListViewColumn"
+        },
+        "recurse": { "type": "boolean" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.ViewProperty"
+        },
+        "jobFilters": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.ViewJobFilter"
+        },
+        "jobNames": { "type": "string" }
+      }
+    },
+    "jobcolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "computerlauncher": {
+      "oneOf": [
+        {
+          "properties": {
+            "jnlp": { "$id": "#/definitions/hudson.slaves.JNLPLauncher" }
+          }
+        },
+        {
+          "properties": {
+            "command": { "$id": "#/definitions/hudson.slaves.CommandLauncher" }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "none": {
+      "type": "object",
+      "properties": {}
+    },
+    "remotingworkdirsettings": {
+      "type": "object",
+      "properties": {
+        "internalDir": { "type": "string" },
+        "disabled": { "type": "boolean" },
+        "failIfWorkDirIsMissing": { "type": "boolean" },
+        "workDirPath": { "type": "string" }
+      }
+    },
+    "filepathsettingsprovider": {
+      "type": "object",
+      "properties": { "path": { "type": "string" } }
+    },
+    "gittool": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tools.ToolProperty"
+        },
+        "home": { "type": "string" }
+      }
+    },
+    "legacyauthorizationstrategy": {
+      "type": "object",
+      "properties": {}
+    },
+    "credentialsprovidertyperestriction": {
+      "oneOf": [
+        {
+          "properties": {
+            "excludes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderTypeRestriction$Excludes"
+            }
+          }
+        },
+        {
+          "properties": {
+            "includes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderTypeRestriction$Includes"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "statuscolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "markupformatter": {
+      "oneOf": [
+        {
+          "properties": {
+            "plainText": {
+              "$id": "#/definitions/hudson.markup.EscapedMarkupFormatter"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "defaultviewstabbar": {
+      "type": "object",
+      "properties": {}
+    },
+    "uploadedkeystoresource": {
+      "type": "object",
+      "properties": {
+        "uploadedKeystore": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.SecretBytes"
+        }
+      }
+    },
+    "itemcolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "retentionstrategy": {
+      "oneOf": [
+        {
+          "properties": {
+            "always": {
+              "$id": "#/definitions/hudson.slaves.RetentionStrategy$Always"
+            }
+          }
+        },
+        {
+          "properties": {
+            "schedule": {
+              "$id": "#/definitions/hudson.slaves.SimpleScheduledRetentionStrategy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "demand": {
+              "$id": "#/definitions/hudson.slaves.RetentionStrategy$Demand"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "defaultcrumbissuer": {
+      "type": "object",
+      "properties": { "excludeClientIPFromCrumb": { "type": "boolean" } }
+    },
+    "globaldefaultviewconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "globaljobdslsecurityconfiguration": {
+      "type": "object",
+      "properties": { "useScriptSecurity": { "type": "boolean" } }
+    },
+    "defaultsettingsprovider": {
+      "type": "object",
+      "properties": {}
+    },
+    "usagestatistics": {
+      "type": "object",
+      "properties": {}
+    },
+    "weathercolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "patternprojectnamingstrategy": {
+      "type": "object",
+      "properties": {
+        "namePattern": { "type": "string" },
+        "description": { "type": "string" },
+        "forceExistingJobs": { "type": "boolean" }
+      }
+    },
+    "escapedmarkupformatter": {
+      "type": "object",
+      "properties": {}
+    },
+    "descriptorimpl": {
+      "type": "object",
+      "properties": { "pollingThreadCount": { "type": "integer" } }
+    },
+    "domainspecification": {
+      "oneOf": [
+        {
+          "properties": {
+            "schemeSpecification": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.SchemeSpecification"
+            }
+          }
+        },
+        {
+          "properties": {
+            "hostnamePortSpecification": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.HostnamePortSpecification"
+            }
+          }
+        },
+        {
+          "properties": {
+            "pathSpecification": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.PathSpecification"
+            }
+          }
+        },
+        {
+          "properties": {
+            "hostnameSpecification": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.HostnameSpecification"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "usernamepasswordcredentialsimpl": {
+      "type": "object",
+      "properties": {
+        "password": { "type": "string" },
+        "scope": {
+          "type": "string",
+          "enum": ["SYSTEM", "GLOBAL", "USER"]
+        },
+        "description": { "type": "string" },
+        "id": { "type": "string" },
+        "username": { "type": "string" }
+      }
+    },
+    "schemespecification": {
+      "type": "object",
+      "properties": { "schemes": { "type": "string" } }
+    },
+    "githubbranchfilter": {
+      "type": "object",
+      "properties": {}
+    },
+    "maveninstaller": {
+      "type": "object",
+      "properties": { "id": { "type": "string" } }
+    },
+    "nodeproperty": {
+      "oneOf": [
+        {
+          "properties": {
+            "toolLocation": {
+              "$id": "#/definitions/hudson.tools.ToolLocationNodeProperty"
+            }
+          }
+        },
+        {
+          "properties": {
+            "envVars": {
+              "$id": "#/definitions/hudson.slaves.EnvironmentVariablesNodeProperty"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "globalnodepropertiesconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "demand": {
+      "type": "object",
+      "properties": {
+        "idleDelay": {
+          "type": "object",
+          "$id": "#/definitions/long"
+        },
+        "inDemandDelay": {
+          "type": "object",
+          "$id": "#/definitions/long"
+        }
+      }
+    },
+    "artifactmanagerfactory": {},
+    "node": {
+      "oneOf": [
+        {
+          "properties": {
+            "permanent": { "$id": "#/definitions/hudson.slaves.DumbSlave" }
+          }
+        },
+        {
+          "properties": {
+            "jenkins": { "$id": "#/definitions/jenkins.model.Jenkins" }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "hooksecretconfig": {
+      "type": "object",
+      "properties": { "credentialsId": { "type": "string" } }
+    },
+    "domain": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "specifications": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.DomainSpecification"
+        }
+      }
+    },
+    "githubpullrequestfilter": {
+      "type": "object",
+      "properties": {}
+    },
+    "globalquietperiodconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "gitbranchspecifiercolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "fullcontrolonceloggedinauthorizationstrategy": {
+      "type": "object",
+      "properties": { "allowAnonymousRead": { "type": "boolean" } }
+    },
+    "toolproperty": {
+      "oneOf": [
+        {
+          "properties": {
+            "installSource": {
+              "$id": "#/definitions/hudson.tools.InstallSourceProperty"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "securityrealm": {
+      "oneOf": [
+        {
+          "properties": {
+            "github": {
+              "$id": "#/definitions/org.jenkinsci.plugins.GithubSecurityRealm"
+            }
+          }
+        },
+        {
+          "properties": {
+            "legacy": {
+              "$id": "#/definitions/hudson.security.LegacySecurityRealm"
+            }
+          }
+        },
+        {
+          "properties": {
+            "local": {
+              "$id": "#/definitions/hudson.security.HudsonPrivateSecurityRealm"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "lastdurationcolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "globalmavenconfig": {
+      "type": "object",
+      "properties": {
+        "settingsProvider": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.mvn.SettingsProvider"
+        },
+        "installations": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tasks.Maven$MavenInstallation"
+        },
+        "globalSettingsProvider": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.mvn.GlobalSettingsProvider"
+        }
+      }
+    },
+    "hostnameportspecification": {
+      "type": "object",
+      "properties": {
+        "excludes": { "type": "string" },
+        "includes": { "type": "string" }
+      }
+    },
+    "crumbissuer": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/hudson.security.csrf.DefaultCrumbIssuer"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "endpoint": {
+      "type": "object",
+      "properties": {
+        "apiUri": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "viewstabbar": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/hudson.views.DefaultViewsTabBar"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "globalcredentialsconfiguration": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.SystemCredentialsProvider"
+        }
+      }
+    },
+    "jenkins": {
+      "type": "object",
+      "properties": {
+        "authorizationStrategy": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.AuthorizationStrategy"
+        },
+        "nodeName": { "type": "string" },
+        "systemMessage": { "type": "string" },
+        "agentProtocols": { "type": "string" },
+        "clouds": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.Cloud"
+        },
+        "primaryView": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.View"
+        },
+        "nodeProperties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.NodeProperty"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["NORMAL", "EXCLUSIVE"]
+        },
+        "numExecutors": { "type": "integer" },
+        "quietPeriod": { "type": "integer" },
+        "labelString": { "type": "string" },
+        "scmCheckoutRetryCount": { "type": "integer" },
+        "projectNamingStrategy": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.ProjectNamingStrategy"
+        },
+        "views": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.View"
+        },
+        "crumbIssuer": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.csrf.CrumbIssuer"
+        },
+        "disableRememberMe": { "type": "boolean" },
+        "markupFormatter": {
+          "type": "object",
+          "$id": "#/definitions/hudson.markup.MarkupFormatter"
+        },
+        "globalNodeProperties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.NodeProperty"
+        },
+        "securityRealm": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.SecurityRealm"
+        },
+        "slaveAgentPort": { "type": "integer" },
+        "myViewsTabBar": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.MyViewsTabBar"
+        },
+        "updateCenter": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.UpdateCenter"
+        },
+        "proxy": {
+          "type": "object",
+          "$id": "#/definitions/hudson.ProxyConfiguration"
+        },
+        "viewsTabBar": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.ViewsTabBar"
+        },
+        "nodes": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.Node"
+        },
+        "remotingSecurity": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.s2m.AdminWhitelistRule"
+        }
+      }
+    },
+    "cascglobalconfig": {
+      "type": "object",
+      "properties": { "configurationPath": { "type": "string" } }
+    },
+    "commandinstaller": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "toolHome": { "type": "string" },
+        "command": { "type": "string" }
+      }
+    },
+    "defaultprojectnamingstrategy": {
+      "type": "object",
+      "properties": {}
+    },
+    "hudsonprivatesecurityrealm": {
+      "type": "object",
+      "properties": {
+        "captchaSupport": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.captcha.CaptchaSupport"
+        },
+        "allowsSignup": { "type": "boolean" },
+        "enableCaptcha": { "type": "boolean" },
+        "users": {
+          "type": "object",
+          "$id": "#/definitions/io.jenkins.plugins.casc.core.HudsonPrivateSecurityRealmConfigurator$UserWithPassword"
+        }
+      }
+    },
+    "jdkinstaller": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "acceptLicense": { "type": "boolean" }
+      }
+    },
+    "queueitemauthenticator": {},
+    "lastfailurecolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "commandlauncher": {
+      "type": "object",
+      "properties": { "command": { "type": "string" } }
+    },
+    "sshd": {
+      "type": "object",
+      "properties": { "port": { "type": "integer" } }
+    },
+    "unsecured": {
+      "type": "object",
+      "properties": {}
+    },
+    "githubpluginconfig": {
+      "type": "object",
+      "properties": {
+        "configs": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.github.config.GitHubServerConfig"
+        },
+        "hookSecretConfig": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.github.config.HookSecretConfig"
+        },
+        "hookUrl": { "type": "string" }
+      }
+    },
+    "masterbuildconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "jdk": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tools.ToolProperty"
+        },
+        "home": { "type": "string" }
+      }
+    },
+    "allview": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.ViewProperty"
+        }
+      }
+    },
+    "globalprojectnamingstrategyconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "buildbuttoncolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "projectnamingstrategy": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "pattern": {
+              "$id": "#/definitions/jenkins.model.ProjectNamingStrategy$PatternProjectNamingStrategy"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "githubauthorizationstrategy": {
+      "type": "object",
+      "properties": {
+        "adminUserNames": { "type": "string" },
+        "authenticatedUserCreateJobPermission": { "type": "boolean" },
+        "organizationNames": { "type": "string" },
+        "authenticatedUserReadPermission": { "type": "boolean" },
+        "allowAnonymousReadPermission": { "type": "boolean" },
+        "allowGithubWebHookPermission": { "type": "boolean" },
+        "allowCcTrayPermission": { "type": "boolean" },
+        "useRepositoryPermissions": { "type": "boolean" },
+        "allowAnonymousJobStatusPermission": { "type": "boolean" }
+      }
+    },
+    "globalcloudconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "defaultglobalsettingsprovider": {
+      "type": "object",
+      "properties": {}
+    },
+    "globalsettingsprovider": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/jenkins.mvn.DefaultGlobalSettingsProvider"
+            }
+          }
+        },
+        {
+          "properties": {
+            "filePath": {
+              "$id": "#/definitions/jenkins.mvn.FilePathGlobalSettingsProvider"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "branchstatuscolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "cloud": {},
+    "settingsprovider": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/jenkins.mvn.DefaultSettingsProvider"
+            }
+          }
+        },
+        {
+          "properties": {
+            "filePath": {
+              "$id": "#/definitions/jenkins.mvn.FilePathSettingsProvider"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "view": {
+      "oneOf": [
+        {
+          "properties": {
+            "": {
+              "$id": "#/definitions/jenkins.branch.MultiBranchProjectViewHolder$ViewImpl"
+            }
+          }
+        },
+        {
+          "properties": {
+            "all": { "$id": "#/definitions/hudson.model.AllView" }
+          }
+        },
+        {
+          "properties": {
+            "proxy": { "$id": "#/definitions/hudson.model.ProxyView" }
+          }
+        },
+        {
+          "properties": {
+            "myView": { "$id": "#/definitions/hudson.model.MyView" }
+          }
+        },
+        {
+          "properties": {
+            "list": { "$id": "#/definitions/hudson.model.ListView" }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "batchcommandinstaller": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "toolHome": { "type": "string" },
+        "command": { "type": "string" }
+      }
+    },
+    "githubsecurityrealm": {
+      "type": "object",
+      "properties": {
+        "captchaSupport": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.captcha.CaptchaSupport"
+        },
+        "githubWebUri": { "type": "string" },
+        "clientID": { "type": "string" },
+        "githubApiUri": { "type": "string" },
+        "clientSecret": { "type": "string" },
+        "oauthScopes": { "type": "string" }
+      }
+    },
+    "listviewcolumn": {
+      "oneOf": [
+        {
+          "properties": {
+            "jobName": { "$id": "#/definitions/hudson.views.JobColumn" }
+          }
+        },
+        {
+          "properties": {
+            "lastDuration": {
+              "$id": "#/definitions/hudson.views.LastDurationColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "buildButton": {
+              "$id": "#/definitions/hudson.views.BuildButtonColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "gitBranchSpecifierColumn": {
+              "$id": "#/definitions/hudson.plugins.git.GitBranchSpecifierColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "lastStable": {
+              "$id": "#/definitions/hudson.views.LastStableColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "weather": { "$id": "#/definitions/hudson.views.WeatherColumn" }
+          }
+        },
+        {
+          "properties": {
+            "branchStatusColumn": {
+              "$id": "#/definitions/jenkins.branch.BranchStatusColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "itemColumn": { "$id": "#/definitions/jenkins.branch.ItemColumn" }
+          }
+        },
+        {
+          "properties": {
+            "lastSuccess": {
+              "$id": "#/definitions/hudson.views.LastSuccessColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "lastFailure": {
+              "$id": "#/definitions/hudson.views.LastFailureColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "descriptionColumn": {
+              "$id": "#/definitions/jenkins.branch.DescriptionColumn"
+            }
+          }
+        },
+        {
+          "properties": {
+            "status": { "$id": "#/definitions/hudson.views.StatusColumn" }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "administrativemonitorsconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "toolconfigurationcategory": {
+      "type": "object",
+      "properties": {
+        "jdk": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.JDK$DescriptorImpl"
+        },
+        "git": {
+          "type": "object",
+          "$id": "#/definitions/hudson.plugins.git.GitTool$DescriptorImpl"
+        },
+        "maven": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.mvn.GlobalMavenConfig"
+        },
+        "jgit": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.gitclient.JGitTool$DescriptorImpl"
+        },
+        "jgitapache": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.gitclient.JGitApacheTool$DescriptorImpl"
+        }
+      }
+    },
+    "authorizationstrategy": {
+      "oneOf": [
+        {
+          "properties": {
+            "github": {
+              "$id": "#/definitions/org.jenkinsci.plugins.GithubAuthorizationStrategy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "legacy": {
+              "$id": "#/definitions/hudson.security.LegacyAuthorizationStrategy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "loggedInUsersCanDoAnything": {
+              "$id": "#/definitions/hudson.security.FullControlOnceLoggedInAuthorizationStrategy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "unsecured": {
+              "$id": "#/definitions/hudson.security.AuthorizationStrategy$Unsecured"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "always": {
+      "type": "object",
+      "properties": {}
+    },
+    "proxyview": {
+      "type": "object",
+      "properties": {
+        "proxiedViewName": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.ViewProperty"
+        }
+      }
+    },
+    "zipextractioninstaller": {
+      "type": "object",
+      "properties": {
+        "subdir": { "type": "string" },
+        "label": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "adminwhitelistrule": {
+      "type": "object",
+      "properties": { "enabled": { "type": "boolean" } }
+    },
+    "captchasupport": {},
+    "includes": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    },
+    "githubserverconfig": {
+      "type": "object",
+      "properties": {
+        "apiUrl": { "type": "string" },
+        "clientCacheSize": { "type": "integer" },
+        "manageHooks": { "type": "boolean" },
+        "name": { "type": "string" },
+        "credentialsId": { "type": "string" }
+      }
+    },
+    "certificatecredentialsimpl": {
+      "type": "object",
+      "properties": {
+        "password": { "type": "string" },
+        "scope": {
+          "type": "string",
+          "enum": ["SYSTEM", "GLOBAL", "USER"]
+        },
+        "description": { "type": "string" },
+        "id": { "type": "string" },
+        "keyStoreSource": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.impl.CertificateCredentialsImpl$KeyStoreSource"
+        }
+      }
+    },
+    "apitokenpropertyconfiguration": {
+      "type": "object",
+      "properties": {
+        "tokenGenerationOnCreationEnabled": { "type": "boolean" },
+        "creationOfLegacyTokenEnabled": { "type": "boolean" },
+        "usageStatisticsEnabled": { "type": "boolean" }
+      }
+    },
+    "myview": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.ViewProperty"
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "string" },
+        "key": { "type": "string" }
+      }
+    },
+    "resourcedomainconfiguration": {
+      "type": "object",
+      "properties": { "url": { "type": "string" } }
+    },
+    "filepathglobalsettingsprovider": {
+      "type": "object",
+      "properties": { "path": { "type": "string" } }
+    },
+    "viewjobfilter": {
+      "oneOf": [
+        {
+          "properties": {
+            "gitHubBranchFilter": {
+              "$id": "#/definitions/org.jenkinsci.plugins.github_branch_source.GitHubBranchFilter"
+            }
+          }
+        },
+        {
+          "properties": {
+            "gitHubPullRequestFilter": {
+              "$id": "#/definitions/org.jenkinsci.plugins.github_branch_source.GitHubPullRequestFilter"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "maveninstallation": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tools.ToolProperty"
+        },
+        "home": { "type": "string" }
+      }
+    },
+    "toolinstaller": {
+      "oneOf": [
+        {
+          "properties": {
+            "zip": {
+              "$id": "#/definitions/hudson.tools.ZipExtractionInstaller"
+            }
+          }
+        },
+        {
+          "properties": {
+            "batchFile": {
+              "$id": "#/definitions/hudson.tools.BatchCommandInstaller"
+            }
+          }
+        },
+        {
+          "properties": {
+            "jdkInstaller": { "$id": "#/definitions/hudson.tools.JDKInstaller" }
+          }
+        },
+        {
+          "properties": {
+            "maven": {
+              "$id": "#/definitions/hudson.tasks.Maven$MavenInstaller"
+            }
+          }
+        },
+        {
+          "properties": {
+            "command": { "$id": "#/definitions/hudson.tools.CommandInstaller" }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "jnlplauncher": {
+      "type": "object",
+      "properties": {
+        "workDirSettings": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.slaves.RemotingWorkDirSettings"
+        },
+        "vmargs": { "type": "string" },
+        "tunnel": { "type": "string" }
+      }
+    },
+    "privatekeysource": {
+      "oneOf": [
+        {
+          "properties": {
+            "directEntry": {
+              "$id": "#/definitions/com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$DirectEntryPrivateKeySource"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "updatesitewarningsconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "stringcredentialsimpl": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "enum": ["SYSTEM", "GLOBAL", "USER"]
+        },
+        "description": { "type": "string" },
+        "id": { "type": "string" },
+        "secret": {
+          "type": "object",
+          "$id": "#/definitions/hudson.util.Secret"
+        }
+      }
+    },
+    "hostnamespecification": {
+      "type": "object",
+      "properties": {
+        "excludes": { "type": "string" },
+        "includes": { "type": "string" }
+      }
+    },
+    "userwithpassword": {
+      "type": "object",
+      "properties": {
+        "password": { "type": "string" },
+        "id": { "type": "string" }
+      }
+    },
+    "unclassified": {
+      "type": "object",
+      "properties": {
+        "myView": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.MyViewsTabBar$GlobalConfigurationImpl"
+        },
+        "resourceRoot": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.ResourceDomainConfiguration"
+        },
+        "scmRetryCount": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalSCMRetryCountConfiguration"
+        },
+        "casCGlobalConfig": {
+          "type": "object",
+          "$id": "#/definitions/io.jenkins.plugins.casc.CasCGlobalConfig"
+        },
+        "gitSCM": {
+          "type": "object",
+          "$id": "#/definitions/hudson.plugins.git.GitSCM$DescriptorImpl"
+        },
+        "mailer": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tasks.Mailer$DescriptorImpl"
+        },
+        "artifactManager": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.ArtifactManagerConfiguration"
+        },
+        "gitHubPluginConfig": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.github.config.GitHubPluginConfig"
+        },
+        "nodeProperties": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalNodePropertiesConfiguration"
+        },
+        "cloud": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalCloudConfiguration"
+        },
+        "gitHubConfiguration": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.github_branch_source.GitHubConfiguration"
+        },
+        "viewsTabBar": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.ViewsTabBar$GlobalConfigurationImpl"
+        },
+        "globalDefaultFlowDurabilityLevel": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.workflow.flow.GlobalDefaultFlowDurabilityLevel$DescriptorImpl"
+        },
+        "quietPeriod": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalQuietPeriodConfiguration"
+        },
+        "defaultView": {
+          "type": "object",
+          "$id": "#/definitions/hudson.views.GlobalDefaultViewConfiguration"
+        },
+        "plugin": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalPluginConfiguration"
+        },
+        "shell": {
+          "type": "object",
+          "$id": "#/definitions/hudson.tasks.Shell$DescriptorImpl"
+        },
+        "usageStatistics": {
+          "type": "object",
+          "$id": "#/definitions/hudson.model.UsageStatistics"
+        },
+        "pollSCM": {
+          "type": "object",
+          "$id": "#/definitions/hudson.triggers.SCMTrigger$DescriptorImpl"
+        },
+        "location": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.JenkinsLocationConfiguration"
+        },
+        "administrativeMonitorsConfiguration": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.management.AdministrativeMonitorsConfiguration"
+        },
+        "masterBuild": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.MasterBuildConfiguration"
+        },
+        "projectNamingStrategy": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.model.GlobalProjectNamingStrategyConfiguration"
+        }
+      }
+    },
+    "credentials": {
+      "oneOf": [
+        {
+          "properties": {
+            "file": {
+              "$id": "#/definitions/org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"
+            }
+          }
+        },
+        {
+          "properties": {
+            "string": {
+              "$id": "#/definitions/org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl"
+            }
+          }
+        },
+        {
+          "properties": {
+            "basicSSHUserPrivateKey": {
+              "$id": "#/definitions/com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey"
+            }
+          }
+        },
+        {
+          "properties": {
+            "certificate": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.impl.CertificateCredentialsImpl"
+            }
+          }
+        },
+        {
+          "properties": {
+            "usernamePassword": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "simplescheduledretentionstrategy": {
+      "type": "object",
+      "properties": {
+        "keepUpWhenActive": { "type": "boolean" },
+        "startTimeSpec": { "type": "string" },
+        "upTimeMins": { "type": "integer" }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {}
+    },
+    "globalcrumbissuerconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "toolinstallation": {
+      "oneOf": [
+        {
+          "properties": { "jdk": { "$id": "#/definitions/hudson.model.JDK" } }
+        },
+        {
+          "properties": {
+            "git": { "$id": "#/definitions/hudson.plugins.git.GitTool" }
+          }
+        },
+        {
+          "properties": {
+            "maven": {
+              "$id": "#/definitions/hudson.tasks.Maven$MavenInstallation"
+            }
+          }
+        },
+        {
+          "properties": {
+            "jgit": {
+              "$id": "#/definitions/org.jenkinsci.plugins.gitclient.JGitTool"
+            }
+          }
+        },
+        {
+          "properties": {
+            "jgitapache": {
+              "$id": "#/definitions/org.jenkinsci.plugins.gitclient.JGitApacheTool"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "keystoresource": {
+      "oneOf": [
+        {
+          "properties": {
+            "uploaded": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.impl.CertificateCredentialsImpl$UploadedKeyStoreSource"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "scriptsource": {
+      "oneOf": [
+        {
+          "properties": {
+            "file": {
+              "$id": "#/definitions/javaposse.jobdsl.plugin.casc.FromFileScriptSource"
+            }
+          }
+        },
+        {
+          "properties": {
+            "script": {
+              "$id": "#/definitions/javaposse.jobdsl.plugin.casc.InlineGroovyScriptSource"
+            }
+          }
+        },
+        {
+          "properties": {
+            "url": {
+              "$id": "#/definitions/javaposse.jobdsl.plugin.casc.FromUrlScriptSource"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "globalpluginconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "proxyconfiguration": {
+      "type": "object",
+      "properties": {
+        "password": { "type": "string" },
+        "port": { "type": "integer" },
+        "name": { "type": "string" },
+        "testUrl": { "type": "string" },
+        "userName": { "type": "string" },
+        "noProxyHost": { "type": "string" }
+      }
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "apiToken": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.apitoken.ApiTokenPropertyConfiguration"
+        },
+        "crumb": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.csrf.GlobalCrumbIssuerConfiguration"
+        },
+        "queueItemAuthenticator": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.QueueItemAuthenticatorConfiguration"
+        },
+        "updateSiteWarningsConfiguration": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.UpdateSiteWarningsConfiguration"
+        },
+        "globalJobDslSecurityConfiguration": {
+          "type": "object",
+          "$id": "#/definitions/javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration"
+        },
+        "masterKillSwitchConfiguration": {
+          "type": "object",
+          "$id": "#/definitions/jenkins.security.s2m.MasterKillSwitchConfiguration"
+        },
+        "scriptApproval": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.plugins.scriptsecurity.scripts.ScriptApproval"
+        },
+        "sSHD": {
+          "type": "object",
+          "$id": "#/definitions/org.jenkinsci.main.modules.sshd.SSHD"
+        }
+      }
+    },
+    "basicsshuserprivatekey": {
+      "type": "object",
+      "properties": {
+        "privateKeySource": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey$PrivateKeySource"
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["SYSTEM", "GLOBAL", "USER"]
+        },
+        "description": { "type": "string" },
+        "passphrase": { "type": "string" },
+        "id": { "type": "string" },
+        "username": { "type": "string" }
+      }
+    },
+    "laststablecolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "smtpauthentication": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "object",
+          "$id": "#/definitions/hudson.util.Secret"
+        },
+        "username": { "type": "string" }
+      }
+    },
+    "dumbslave": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["NORMAL", "EXCLUSIVE"]
+        },
+        "nodeName": { "type": "string" },
+        "numExecutors": { "type": "integer" },
+        "retentionStrategy": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.RetentionStrategy"
+        },
+        "labelString": { "type": "string" },
+        "name": { "type": "string" },
+        "nodeDescription": { "type": "string" },
+        "remoteFS": { "type": "string" },
+        "userId": { "type": "string" },
+        "launcher": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.ComputerLauncher"
+        },
+        "nodeProperties": {
+          "type": "object",
+          "$id": "#/definitions/hudson.slaves.NodeProperty"
+        }
+      }
+    },
+    "legacysecurityrealm": {
+      "type": "object",
+      "properties": {
+        "captchaSupport": {
+          "type": "object",
+          "$id": "#/definitions/hudson.security.captcha.CaptchaSupport"
+        }
+      }
+    },
+    "domaincredentials": {
+      "type": "object",
+      "properties": {
+        "credentials": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.Credentials"
+        },
+        "domain": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.domains.Domain"
+        }
+      }
+    },
+    "toollocation": {
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "home": { "type": "string" }
+      }
+    },
+    "directentryprivatekeysource": {
+      "type": "object",
+      "properties": {
+        "privateKey": {
+          "type": "object",
+          "$id": "#/definitions/hudson.util.Secret"
+        }
+      }
+    },
+    "lastsuccesscolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "credentialstypefilter": {
+      "oneOf": [
+        {
+          "properties": {
+            "excludes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsTypeFilter$Excludes"
+            }
+          }
+        },
+        {
+          "properties": {
+            "includes": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsTypeFilter$Includes"
+            }
+          }
+        },
+        {
+          "properties": {
+            "none": {
+              "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsTypeFilter$None"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "filecredentialsimpl": {
+      "type": "object",
+      "properties": {
+        "fileName": { "type": "string" },
+        "scope": {
+          "type": "string",
+          "enum": ["SYSTEM", "GLOBAL", "USER"]
+        },
+        "description": { "type": "string" },
+        "id": { "type": "string" },
+        "secretBytes": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.SecretBytes"
+        }
+      }
+    },
+    "pathspecification": {
+      "type": "object",
+      "properties": {
+        "excludes": { "type": "string" },
+        "caseSensitive": { "type": "boolean" },
+        "includes": { "type": "string" }
+      }
+    },
+    "descriptioncolumn": {
+      "type": "object",
+      "properties": {}
+    },
+    "myviewstabbar": {
+      "oneOf": [
+        {
+          "properties": {
+            "standard": {
+              "$id": "#/definitions/hudson.views.DefaultMyViewsTabBar"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "updatesite": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "type": "object",
+          "$id": "#/definitions/com.cloudbees.plugins.credentials.CredentialsProviderManager$Configuration"
+        }
+      }
+    },
+    "globalscmretrycountconfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "defaultmyviewstabbar": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}

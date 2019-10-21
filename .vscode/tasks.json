@@ -1,0 +1,29 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "tasks": [
+    {
+      "command": "docker build . -t robertsmieja/immutable-jenkins:development && docker run --rm -it -p 8080:8080 -p 50000:50000 robertsmieja/immutable-jenkins:development",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "Build and Run Jenkins",
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "command": "JENKINS_HOST=admin:password@localhost:8080; curl -sSL \"http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins\" | perl -pe 's/.*?<shortName>([\\w-]+).*?<version>([^<]+)()(<\\/\\w+>)+/\\1 \\2\\n/g'|sed 's/ /:/' | sort",
+      "label": "Print version of Jenkins plugins",
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
+      "command": "JENKINS_HOST=admin:password@localhost:8080; curl -sSL \"http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins\" | perl -pe 's/.*?<shortName>([\\w-]+).*?<version>([^<]+)()(<\\/\\w+>)+/\\1 \\2\\n/g'|sed 's/ /:/' | sort > src/main/resources/plugins.txt",
+      "label": "Update Jenkins plugins.txt",
+      "problemMatcher": [],
+      "type": "shell"
+    }
+  ],
+  "version": "2.0.0"
+}

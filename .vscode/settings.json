@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "./jenkins.yaml.schema.json": "/jenkins.yaml"
+  }
+}
